@@ -1,75 +1,61 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import { GithubLogoIcon, LinkedinLogoIcon, ArrowUpRightIcon, GlobeSimpleIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
 
 export default function Footer() {
   const socials = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/stefania-deliso-developer/' },
-    { name: 'GitHub', url: 'https://github.com/darkmindy' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/stefania-deliso-developer/', icon: <LinkedinLogoIcon weight="thin" size={18} /> },
+    { name: 'GitHub', url: 'https://github.com/darkmindy', icon: <GithubLogoIcon weight="thin" size={18} /> },
   ];
 
   return (
-    <footer className="bg-[#1A1A1A] py-24 px-6 md:px-12 lg:px-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
-        {/* Cambiato div in motion.div per usare l'animazione */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-        >
+    <footer className="relative bg-[#030014] pt-32 pb-12 px-8 border-t border-white/10 overflow-hidden">
+      <div className="max-w-350 mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           
-          <div className="space-y-8">
-            <h2 className="text-white text-5xl md:text-7xl font-bold tracking-tighter leading-none">
-              Pronti per il <br />
-              <span className="text-[#D4AF37] font-serif italic font-light">prossimo step?</span>
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="space-y-12">
+            <h2 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.8] uppercase text-white">
+              Prossimo<br /><span className="text-blue-500 italic font-light">Step?</span>
             </h2>
-            <p className="text-[#C0C0C0] text-xl max-w-md font-light">
-              Attualmente valuto opportunità come <span className="text-white">Full-stack Designer</span> o <span className="text-white">Senior Frontend Developer</span> in contesti innovativi.
-            </p>
-          </div>
-
-          <div className="bg-[#252525] p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden group">
-            <div className="relative z-10 space-y-8">
-              <p className="text-white/60 font-mono text-xs uppercase tracking-[0.3em]">Contatti_Diretti</p>
-              
-              <div className="space-y-4">
-                <a 
-                  href="mailto:stefania.devgdi@gmail.com" 
-                  className="block text-2xl md:text-3xl text-white hover:text-[#D4AF37] transition-colors font-medium break-all"
-                >
-                  stefania.devgdi@gmail.com
-                </a>
-              </div>
-
-              <div className="flex gap-8 pt-4">
-                {socials.map((social) => (
-                  <motion.a 
-                    key={social.name} 
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -2, color: "#D4AF37" }} // Animazione hover attiva
-                    className="text-xs uppercase tracking-widest text-white/40 transition-colors"
-                  >
-                    {social.name}
-                  </motion.a>
-                ))}
-              </div>
+            <div className="group relative inline-block">
+              <a href="mailto:stefania.devgdi@gmail.com" className="text-2xl md:text-4xl text-white font-medium flex items-center gap-6 hover:text-blue-400 transition-all">
+                <EnvelopeSimpleIcon size={32} weight="thin" className="text-blue-500" />
+                stefania.devgdi@gmail.com
+                <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all duration-500">
+                  <ArrowUpRightIcon size={24} weight="bold" />
+                </div>
+              </a>
             </div>
-            
-            {/* Elemento decorativo con opacità variabile al mouse over */}
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="absolute -right-10 -bottom-10 text-[15rem] font-black text-white/5 pointer-events-none select-none"
-            >
-              HI
-            </motion.div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:row justify-between gap-4 text-[10px] font-mono uppercase tracking-widest text-white/30">
-          <p>© {new Date().getFullYear()} Stefania Deliso — Pixel & Code Mastery</p>
-          <p>Built with React + TypeScript</p>
+          <div className="bg-white/2 border border-white/5 rounded-3xl p-10 space-y-10">
+            <p className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.4em] border-b border-white/5 pb-6">03_Network & Connectivity</p>
+            <div className="space-y-4">
+              {socials.map((social) => (
+                <a key={social.name} href={social.url} target="_blank" className="flex items-center justify-between p-5 rounded-2xl border border-white/5 hover:bg-white/3 transition-all group">
+                  <div className="flex items-center gap-4 text-white">
+                    <span className="text-white/20 group-hover:text-blue-400 transition-colors">{social.icon}</span>
+                    <span className="text-xs uppercase tracking-widest text-white/60">{social.name}</span>
+                  </div>
+                  <ArrowUpRightIcon size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-white" />
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center gap-3 text-[10px] font-mono text-white/20 uppercase tracking-widest pt-4">
+              <GlobeSimpleIcon size={14} weight="thin" className="text-green-500" />
+              <span>Sicily / Remote / Worldwide</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-40 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 font-mono text-[9px] uppercase tracking-[0.3em] text-white/20">
+          <p>© 2026 Stefania Deliso</p>
+          <div className="flex gap-8">
+            {['React', 'TypeScript', 'Tailwind'].map(tech => (
+              <span key={tech} className="flex items-center gap-2 tracking-widest"><div className="w-1 h-1 bg-blue-500 rounded-full" /> {tech}</span>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

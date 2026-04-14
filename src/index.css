@@ -1,42 +1,68 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 26 26 26; /* #1A1A1A in RGB */
-    --text-primary: 255 255 255;
-    --text-secondary: 192 192 192;
-    --accent-gold: 212 175 55; /* #D4AF37 */
-  }
-
-  body {
-    background-color: rgb(var(--background));
-    color: rgb(var(--text-secondary));
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Focus States A11Y corretti per Tailwind v4 */
-  *:focus-visible {
-    outline: 2px solid rgb(var(--accent-gold));
-    outline-offset: 4px;
-  }
+@theme {
+  /* Estendiamo i raggi di curvatura per un look più moderno/Bento */
+  --radius-4xl: 2rem;
+  --radius-5xl: 3rem;
+  
+  /* Animazioni personalizzate per i gradienti di sfondo */
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Custom Utilities per mantenere lo stile pulito */
-@layer utilities {
-  .font-serif {
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .text-gold {
-    color: rgb(var(--accent-gold));
-  }
-  
-  .bg-gold {
-    background-color: rgb(var(--accent-gold));
-  }
-  html {
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  background-color: #030014; /* Il tuo Deep Ocean */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #030014;
+  overflow-x: hidden; /* Fondamentale per non vedere la barra orizzontale */
+}
+/* --- EFFETTI CUSTOM --- */
+
+/* Migliora la resa del vetro (Glassmorphism) */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Forza la fluidità delle immagini (sticker Chibi) */
+img {
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+/* Rendi lo scroll fluido in tutta la pagina */
+html {
   scroll-behavior: smooth;
 }
+
+/* Stile personalizzato per la scrollbar (opzionale, molto pulito) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030014;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1b4b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #312e81;
 }
