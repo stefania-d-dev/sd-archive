@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
   // IMPORTANTE: base path per GitHub Pages
   // Deve corrispondere al nome del repository
-  base: '/SD_Portfolio_Final/',
+  base: '/sd-archive/',
 })

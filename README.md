@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# SD_Archive // Digital Portfolio 2024
+> **"Premium Identity, Editorial UI, Technical Rigor."**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Benvenuti nel mio archivio digitale. Questo progetto non è solo un portfolio, ma una dichiarazione d'intenti: dimostra come una cura maniacale per il **white space** e la **tipografia bold** possa elevare un prodotto digitale a un'esperienza premium.
 
-Currently, two official plugins are available:
+[LIVE DEMO](https://stefania-d-dev.github.io/sd-archive/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 01_The_Vision
+L'obiettivo di questo sviluppo è la trasposizione millimetrica di una "Boutique Digitale". 
+- **Estetica Editoriale:** Ispirato ai layout di testate lusso e moda (es. GUESS).
+- **Human-Centric Design:** Gestione degli spazi bianchi per ridurre il carico cognitivo e aumentare il valore percepito.
+- **Performance:** Sviluppato con Vite e React per garantire una reattività istantanea.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 02_Technical_Stack
+- **Framework:** React 18 (Vite)
+- **Styling:** Tailwind CSS (Custom Config per spaziatura editoriale)
+- **Animation:** Framer Motion (Transizioni asimmetriche e fluide)
+- **Icons:** Phosphor Icons (Thin Weight)
+- **Deployment:** GitHub Pages
 
-## Expanding the ESLint configuration
+## 03_Key_Features
+- **CreativeLayout Engine:** Un sistema di componenti dinamici che adatta l'accento cromatico e i disclaimer legali in base al progetto (Mariagnese, Animo, Sano).
+- **AI-Insight Integration:** Sezioni dedicate al valore aggiunto umano rispetto ai generatori automatici.
+- **Responsive Mastery:** Adattamento della griglia editoriale da 12 colonne (Desktop) a layout a colonna singola (Mobile) senza perdere il "respiro" dei contenuti.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 04_Setup
+Per esplorare il codice in locale:
+```bash
+git clone [https://github.com/stefania-d-dev/sd-archive.git](https://github.com/stefania-d-dev/sd-archive.git)
+cd sd-archive
+pnpm install
+pnpm run dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Design & Dev by Stefania D. Boutique Digital Specialist // Frontend Developer
