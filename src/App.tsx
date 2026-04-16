@@ -1,11 +1,14 @@
 import { Routes, Route, useParams } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 import Hero from './components/sections/Hero';
+import Marquee from './components/layout/Marquee';
 import About from './components/sections/About'; 
 import Approach from './components/sections/Approach';
 import SelectedWorks from './components/sections/SelectedWorks';
 import CaseStudy from './pages/CaseStudy'; 
 import CreativeLayout from './pages/CreativeLayout';
+import Skills from './components/sections/Skills';
 import { PROJECTS_DATA } from './lib/projects';
 import Footer from './components/layout/Footer';
 
@@ -13,9 +16,12 @@ import Footer from './components/layout/Footer';
 const HomePage = () => (
   <>
     <Navbar />
+    <ScrollToTop />
     <Hero />
+    <Marquee />
     <About />
     <Approach />
+    <Skills />
     <SelectedWorks />
     <Footer />
   </>

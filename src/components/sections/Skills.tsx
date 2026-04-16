@@ -1,29 +1,37 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import { 
+  PaletteIcon, 
+  CodeIcon, 
+  RocketLaunchIcon, 
+  ChartLineUpIcon 
+} from '@phosphor-icons/react';
 
 const expertiseItems = [
   {
-    title: "Design",
-    subtitle: "UI/UX & Branding Systems",
-    desc: "Progetto interfacce user-centric su Figma e sviluppo sistemi visivi scalabili, pronti per la produzione cross-channel.",
-    icon: "🎨" 
+    title: "Design & UX",
+    subtitle: "SaaS & Dashboard Systems",
+    desc: "Progetto interfacce B2B complesse e Dashboard intuitive. Trasformo requisiti di business in esperienze user-centric su Figma, con un focus maniacale sull'usabilità dei flussi SaaS.",
+    icon: <PaletteIcon size={32} weight="thin" className="text-blue-400" />
   },
   {
     title: "Sviluppo",
-    subtitle: "Frontend & Custom CMS",
-    desc: "Dal WordPress Custom Expert allo sviluppo React e TypeScript, creo architetture di codice pulite, performanti e di facile manutenzione.",
-    icon: "💻" 
+    subtitle: "HTML, React & Performance",
+    desc: "Sviluppo frontend pixel-perfect con React e TS. Dalla manutenzione hardware al codice, garantisco architetture solide, veloci e facili da scalare, ottimizzando ogni Core Web Vital.",
+    icon: <CodeIcon size={32} weight="thin" className="text-purple-400" />
   },
   {
-    title: "Strategia",
-    subtitle: "Performance & Technical SEO",
-    desc: "Ottimizzo le performance digitali (PageSpeed 90+), implemento la SEO tecnica e adotto un approccio data-driven per massimizzare l'impatto.",
-    icon: "🚀" 
+    title: "Strategia & AI",
+    subtitle: "AI-Driven Business Growth",
+    desc: "Integro l'Intelligenza Artificiale per ottimizzare i flussi di lavoro. Uso un approccio data-driven per massimizzare le conversioni e supportare le strategie di vendita nel mercato digitale.",
+    icon: <RocketLaunchIcon size={32} weight="thin" className="text-blue-500" />
   },
   {
-    title: "Gestione",
-    subtitle: "Ciclo di Prodotto End-to-End",
-    desc: "Supervisiono l'intero processo: dal concept iniziale su Figma al deployment finale e al monitoring post-lancio, garantendo solidità e qualità.",
-    icon: "⚙️" 
+    title: "Business",
+    subtitle: "B2B Sales & Product Cycle",
+    desc: "Capisco le dinamiche di vendita e i processi aziendali. Gestisco l'intero ciclo del prodotto garantendo che ogni soluzione tecnica porti un valore reale agli obiettivi commerciali.",
+    icon: <ChartLineUpIcon size={32} weight="thin" className="text-green-400" />
   },
 ];
 
@@ -31,66 +39,78 @@ export default function Expertise() {
   return (
     <section 
       id="expertise" 
-      className="bg-(--color-background) py-32 px-6 md:px-12 lg:px-24 border-t border-(--color-text-secondary)/10"
-      aria-labelledby="expertise-title"
+      className="bg-[#030014] py-32 md:py-48 px-6 md:px-12 lg:px-24 border-t border-white/10 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <h2 
-          id="expertise-title" 
-          className="text-(--color-accent-gold) font-['Inter'] text-sm uppercase tracking-[0.3em] mb-8"
-        >
-          My Core Capabilities
-        </h2>
-        <p className="text-(--color-text-primary) font-['Inter'] text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-20 max-w-4xl">
-          Ciò che porto nel team:
-          <span className="block text-(--color-text-secondary) font-light text-xl md:text-2xl mt-4">
-            Gestisco l'intero ciclo: dal primo schizzo su Figma al deployment finale.
-          </span>
-        </p>
+      {/* Background Decorative Element */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8 mb-24"
+        >
+          <h2 className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em]">
+            Core Expertise // 02
+          </h2>
+          <p className="text-white text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] uppercase italic max-w-4xl">
+            Visione creativa, <br />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-white/40 to-white/5 not-italic">concretezza business.</span>
+          </p>
+          <p className="text-white/30 font-mono text-[11px] uppercase tracking-[0.2em] leading-relaxed max-w-md border-l border-blue-500 pl-6">
+            Dal Problem Solving tecnico all&apos;integrazione di sistemi AI per prodotti SaaS ad alto impatto.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {expertiseItems.map((item, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true, amount: 0.4 }}
-              className="bg-(--color-background) border border-(--color-text-secondary)/15 rounded-xl p-8 flex flex-col 
-                         hover:border-(--color-accent-gold) transition-colors duration-300 group"
-              role="article"
-              aria-labelledby={`expertise-title-${i}`}
-              aria-describedby={`expertise-desc-${i}`}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white/2 border border-white/5 rounded-4xl p-10 flex flex-col 
+                         hover:bg-white/4 hover:border-blue-500/30 transition-all duration-500 group relative overflow-hidden"
             >
-              <div className="text-5xl mb-6" aria-hidden="true">{item.icon}</div>
-              <h3 
-                id={`expertise-title-${i}`} 
-                className="text-(--color-text-primary) font-['Inter'] text-2xl font-semibold mb-2"
-              >
-                {item.title}
-              </h3>
-              <p className="text-(--color-accent-gold) font-['Inter'] text-xs uppercase tracking-widest mb-4">
-                {item.subtitle}
-              </p>
-              <p 
-                id={`expertise-desc-${i}`} 
-                className="text-(--color-text-secondary) font-light leading-relaxed grow"
-              >
-                {item.desc}
-              </p>
+              {/* Icon Holder */}
+              <div className="mb-8 p-4 bg-white/5 w-fit rounded-2xl group-hover:scale-110 group-hover:bg-blue-500/10 transition-all duration-500">
+                {item.icon}
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-white text-2xl font-bold tracking-tight uppercase leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-blue-500/60 font-mono text-[9px] uppercase tracking-widest font-bold">
+                  {item.subtitle}
+                </p>
+                <p className="text-white/30 font-light leading-relaxed text-sm group-hover:text-white/50 transition-colors italic">
+                  {item.desc}
+                </p>
+              </div>
+
+              {/* Decorative Corner Trace */}
+              <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-4 h-4 border-t border-r border-blue-500/40" />
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 p-8 bg-(--color-accent-gold)/5 border border-(--color-accent-gold)/20 rounded-xl text-center"
-             role="status" aria-live="polite">
-          <p className="text-(--color-text-primary) font-['Playfair_Display'] italic text-xl md:text-2xl leading-relaxed">
-            "Creare esperienze digitali dove estetica e performance tecnica non scendono a compromessi."
+        {/* Banner finale - Citazione di chiusura */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="mt-32 p-12 md:p-16 bg-white/2 border border-white/5 rounded-5xl text-center relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-transparent pointer-events-none" />
+          <p className="text-white/60 italic font-light text-2xl md:text-4xl leading-tight max-w-4xl mx-auto relative z-10">
+            &quot;Il mio obiettivo è tradurre la complessità del business in semplicità digitale, unendo l&apos;intelligenza artificiale all&apos;intuizione umana.&quot;
           </p>
-          <p className="text-(--color-accent-gold) font-['Inter'] text-sm uppercase tracking-widest mt-4">
-            Obiettivo principale
-          </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
