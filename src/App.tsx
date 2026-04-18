@@ -12,7 +12,7 @@ import Skills from './components/sections/Skills';
 import { PROJECTS_DATA } from './lib/projects';
 import Footer from './components/layout/Footer';
 
-// Componente per la Home Page completa
+// Home Page
 const HomePage = () => (
   <>
     <Navbar />
@@ -27,45 +27,38 @@ const HomePage = () => (
   </>
 );
 
-// Il "Vigile Urbano": Smista l'utente verso il layout corretto
-function ProjectWrapper() {
+// Wrapper per la Vista Creativa
+function CreativeWrapper() {
   const { projectId } = useParams<{ projectId: string }>();
-  
-  // Cerchiamo il progetto nei dati importati usando l'id della rotta
   const project = PROJECTS_DATA.find((p) => p.id === projectId);
+  if (!project) return <NotFound />;
+  return <CreativeLayout project={project} />;
+}
 
-  // 1. Caso: Progetto non trovato
-  if (!project) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-white font-mono bg-[#030014] p-6 text-center">
-        <p className="uppercase tracking-[0.5em] text-[10px] mb-8">Project Not Found_</p>
-        <a href="/" className="text-blue-500 text-xs hover:underline uppercase tracking-widest">
-          Return to home
-        </a>
-      </div>
-    );
-  }
-
-  // 2. Caso: Progetto di Design (Layout Editoriale/Creativo)
-  if (project.category === 'design') {
-    return <CreativeLayout project={project} />; 
-  }
-
-  // 3. Caso: Progetto Code/Default (Layout Tecnico)
+// Wrapper per la Vista Tecnica
+function TechnicalWrapper() {
+  const { projectId } = useParams<{ projectId: string }>();
+  const project = PROJECTS_DATA.find((p) => p.id === projectId);
+  if (!project) return <NotFound />;
   return <CaseStudy project={project} />;
 }
 
+const NotFound = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center text-white bg-[#030014]">
+    <p className="font-mono uppercase tracking-widest">Project Not Found_</p>
+    <a href="/" className="mt-4 text-blue-500 hover:underline">Return Home</a>
+  </div>
+);
+
 export default function App() {
   return (
-    <div className="bg-[#030014] min-h-screen selection:bg-blue-500/30 selection:text-white">
+    <div className="bg-[#030014] min-h-screen">
       <Routes>
-        {/* Rotta Principale */}
         <Route path="/" element={<HomePage />} />
-        
-        {/* Rotta Dinamica per i Case Studies */}
-        <Route path="/project/:projectId" element={<ProjectWrapper />} />
-        
-        {/* Rotta di Fallback (Redirect alla Home se l'URL è sbagliato) */}
+        {/* Rotta Creativa */}
+        <Route path="/project/:projectId" element={<CreativeWrapper />} />
+        {/* Rotta Tecnica */}
+        <Route path="/case-study/:projectId" element={<TechnicalWrapper />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </div>

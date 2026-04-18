@@ -10,6 +10,7 @@ import imgMariagnese from '../assets/design_project_10.webp';
 import imgSano from '../assets/SanoSiciliano/design_project_3.webp';
 import imgMosca from '../assets/projects/MoscaMobili-browser-mockup.webp';
 import imgPortfolio from '../assets/projects/portfolio-meta.webp';
+import imgFides from '../assets/projects/fides-recovery-hub-mockup.webp';
 
 // Gallery di Sano Siciliano
 import sanoLogo from '../assets/Loghi/LogoSano.webp';
@@ -92,7 +93,7 @@ export const PROJECTS_DATA: Project[] = [
     category: 'design'   
   },
   {
-    id: "soulfarm",
+  id: "soulfarm",
   title: "Soulfarm",
   role: "React Developer — Refactoring v2.0",
   duration: "2024 → 2026",
@@ -144,7 +145,7 @@ export const PROJECTS_DATA: Project[] = [
     category: 'code'
   },
 {
-   id: "devfest-passport",
+    id: "devfest-passport",
     title: "DevFest Passport",
     role: "Flutter & UI Designer",
     duration: "2025",
@@ -160,7 +161,7 @@ export const PROJECTS_DATA: Project[] = [
       dfpWelcome,
       dfpLog
     ],
-    repo: "https://github.com/Darkmindy/devfestlog_passport",
+    repo: "https://github.com/stefania-d-dev/devfestlog_passport",
     type: 'mobile',
     category: 'code'
   },
@@ -251,9 +252,28 @@ export const PROJECTS_DATA: Project[] = [
     solution: "Utilizzo di Framer Motion per la gestione orchestrata delle animazioni e Tailwind CSS per un design atomico efficiente. Il sistema di filtraggio dei progetti è gestito tramite stati React per garantire una transizione fluida tra categorie senza ricaricamenti.",
     performance: "99 FPS / 0.4s LOAD",
     image: imgPortfolio, 
-    liveUrl: "https://darkmindy.github.io/SD_Portfolio_Final/",
-    repo: "https://github.com/darkmindy/SD_Portfolio_Final",
+    liveUrl: "https://stefania-d-dev.github.io/sd-archive/",
+    repo: "https://github.com/stefania-d-dev/SD_Portfolio_Final",
     type: 'UI Engineering / Portfolio',
     category: 'code'
-  }
+  },
+{
+    id: 'fides-recovery-hub',
+    title: 'Fides Recovery Hub',
+    role: 'Frontend Developer & UI Architect',
+    duration: '4 Days (Fast-Track MVP)',
+    tech: ['React 18', 'TypeScript', 'Tailwind CSS', 'Lucide Icons', 'Vercel'],
+    description: 'Dashboard Fintech ad alte prestazioni dedicata all’asset management e all’ottimizzazione del recupero crediti.',
+    fullDescription: "Fides Recovery Hub è un'applicazione professionale che ridefinisce l'esperienza d'uso nei software finanziari. Il progetto implementa un'architettura a componenti atomici e una gestione dello stato ottimizzata per gestire flussi di dati complessi. Il focus principale è stato l'equilibrio tra un'estetica 'Premium Banking' e una solidità tecnica garantita da TypeScript.",
+    challenge: "Risolvere il problema del 'Data Clutter' tipico dei software finanziari legacy, dove il sovraccarico di informazioni causa fatica decisionale e rallentamento del DSO (Days Sales Outstanding). La sfida era creare uno strumento che filtrasse il rumore visivo senza perdere la profondità dei dati.",
+    solution: "Ho sviluppato un'interfaccia basata su una gerarchia editoriale, integrando un sistema di navigazione fluido con smoothing delle transizioni. Ho implementato un sistema di monitoraggio del rischio che non si affida solo al colore, ma a forme e metadati (A11Y), garantendo l'accessibilità universale del dato critico.",
+    performance: '100/100',
+    image: imgFides,
+    gallery: [], // Qui potresti aggiungere gli screen della tabella e del modal dettaglio
+    liveUrl: 'https://fides-recovery-hub.vercel.app/',
+    repo: 'https://github.com/stefania-d-dev/fides-recovery-hub',
+    category: 'code',
+    type: 'Fintech Dashboard',
+    agency: 'Independent Project' 
+}
 ];
